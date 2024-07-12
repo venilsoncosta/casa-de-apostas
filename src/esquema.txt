@@ -1,0 +1,169 @@
+com.venilson.casadeapostas
+│
+├── apostador
+│   ├── Apostador.java
+│   ├── ApostadorController.java
+│   ├── ApostadorService.java
+│   ├── ApostadorRepository.java
+│   └── dto
+│       └── ApostadorDTO.java
+│
+├── eventoEsportivo
+│   ├── EventoEsportivo.java
+│   ├── EventoEsportivoController.java
+│   ├── EventoEsportivoService.java
+│   ├── EventoEsportivoRepository.java
+│   └── dto
+│       └── EventoEsportivoDTO.java
+│
+├── aposta
+│   ├── Aposta.java
+│   ├── ApostaController.java
+│   ├── ApostaService.java
+│   ├── ApostaRepository.java
+│   └── dto
+│       └── ApostaDTO.java
+│
+├── tipoAposta
+│   ├── TipoAposta.java
+│   ├── TipoApostaController.java
+│   ├── TipoApostaService.java
+│   ├── TipoApostaRepository.java
+│   └── dto
+│       └── TipoApostaDTO.java
+│
+├── esporte
+│   ├── Esporte.java
+│   ├── EsporteController.java
+│   ├── EsporteService.java
+│   ├── EsporteRepository.java
+│   └── dto
+│       └── EsporteDTO.java
+│
+├── equipeJogador
+│   ├── EquipeJogador.java
+│   ├── EquipeJogadorController.java
+│   ├── EquipeJogadorService.java
+│   ├── EquipeJogadorRepository.java
+│   └── dto
+│       └── EquipeJogadorDTO.java
+│
+├── config
+│   └── SecurityConfig.java
+│
+├── exception
+│   └── CustomExceptionHandler.java
+│
+└── util
+    └── Utils.java
+
+Apostador
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome, email, senha (criptografada), data de nascimento, saldo, histórico de apostas,
+    status (ativo/inativo).
+    Métodos:
+        depositar (Service)
+        sacar (Service)
+        apostar (Service)
+        verificar histórico (Service/Repository)
+
+Evento Esportivo
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome, data/hora, esporte, equipes/jogadores, odds (probabilidades),
+    status (aberto/encerrado).
+    Métodos:
+        calcular resultado (Service)
+        atualizar status (Service)
+
+Aposta
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, usuário, evento esportivo, tipo de aposta, valor apostado, odds,
+    status (pendente/ganha/perde).
+    Métodos:
+        calcular resultado (Service)
+        atualizar status (Service)
+
+Tipo de Aposta
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome, descrição, regras.
+
+Esporte
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome.
+
+Equipe/Jogador
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome, esporte.
+
+Outras Entidades Possíveis
+Campeonato
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, nome, eventos esportivos.
+
+Bônus
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, descrição, valor.
+
+Transação
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, tipo (depósito/saque), valor, data.
+
+Notificação
+
+    Pacote: com.example.apostas.model
+    Atributos: ID, mensagem, data, usuário.
+
+Funcionalidades Principais
+
+    Cadastro e Login
+        Pacote: com.example.apostas.controller
+        Métodos:
+            criar conta (Service/Controller)
+            autenticar (Service/Controller)
+
+    Gerenciamento de Saldo
+        Pacote: com.example.apostas.service
+        Métodos:
+            depositar (Service)
+            sacar (Service)
+            histórico de transações (Service/Repository)
+
+    Catálogo de Eventos
+        Pacote: com.example.apostas.controller
+        Métodos:
+            listar eventos (Service/Controller)
+            filtrar eventos (Service/Controller)
+
+    Criação de Apostas
+        Pacote: com.example.apostas.controller
+        Métodos:
+            criar aposta (Service/Controller)
+            calcular possível retorno (Service)
+
+    Visualização de Apostas
+        Pacote: com.example.apostas.controller
+        Métodos:
+            histórico de apostas (Service/Controller)
+            status das apostas (Service/Repository)
+
+    Resultados e Pagamentos
+        Pacote: com.example.apostas.service
+        Métodos:
+            calcular resultados (Service)
+            processar pagamentos (Service)
+
+    Gerenciamento Administrativo (Opcional)
+        Pacote: com.example.apostas.controller.admin
+        Métodos:
+            criar/editar eventos (Service/Controller)
+            gerenciar usuários (Service/Controller)
+            gerar relatórios (Service/Controller)
