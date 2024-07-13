@@ -1,5 +1,6 @@
 package com.venilson.casadeaposta.equipeJogador;
 
+import com.venilson.casadeaposta.equipeJogador.dto.EquipeJogadorDTO;
 import com.venilson.casadeaposta.esporte.Esporte;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,4 +21,8 @@ public class EquipeJogador {
     @ManyToOne
     @JoinColumn(name = "esporte_id", nullable = false)
     private Esporte esporte;
+
+    public EquipeJogador(EquipeJogadorDTO equipeJogadorDTO){
+        this.esporte = equipeJogadorDTO.esporte();
+    }
 }

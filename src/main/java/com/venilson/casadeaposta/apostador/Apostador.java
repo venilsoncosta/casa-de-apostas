@@ -1,6 +1,7 @@
 package com.venilson.casadeaposta.apostador;
 
 import com.venilson.casadeaposta.aposta.Aposta;
+import com.venilson.casadeaposta.apostador.dto.ApostadorDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +29,11 @@ public class Apostador {
     private double saldo;
     @OneToMany(mappedBy = "apostador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Aposta> historicoApostas;
+
+    public Apostador(ApostadorDTO apostador){
+        this.nome = apostador.nome();
+        this.email = apostador.email();
+        this.senha = apostador.senha();
+        this.dataNascimento = apostador.dataNascimento();
+    }
 }

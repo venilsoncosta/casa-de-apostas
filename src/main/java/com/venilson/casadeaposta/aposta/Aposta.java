@@ -1,5 +1,6 @@
 package com.venilson.casadeaposta.aposta;
 
+import com.venilson.casadeaposta.aposta.dto.ApostaDTO;
 import com.venilson.casadeaposta.apostador.Apostador;
 import com.venilson.casadeaposta.eventoEsportivo.EventoEsportivo;
 import com.venilson.casadeaposta.tipoAposta.TipoAposta;
@@ -37,4 +38,13 @@ public class Aposta {
 
     @Enumerated(EnumType.STRING)
     private StatusAposta statusAposta;
+
+    public Aposta(ApostaDTO apostaDTO) {
+        this.apostador = apostaDTO.apostador();
+        this.eventoEsportivo = apostaDTO.eventoEsportivo();
+        this.tipoAposta = apostaDTO.tipoAposta();
+        this.valorApostado = apostaDTO.valorApostado();
+        this.odds = apostaDTO.odds();
+        this.statusAposta = apostaDTO.statusAposta();
+    }
 }

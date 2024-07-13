@@ -1,4 +1,8 @@
 package com.venilson.casadeaposta.equipeJogador.dto;
 
-public class EquipeJogadorDTO {
+import com.venilson.casadeaposta.esporte.Esporte;
+
+public record EquipeJogadorDTO(
+        Esporte esporte
+) {
 }
